@@ -6,7 +6,7 @@ const options = {
   1: games.calculator,
 };
 let name;
-console.log("Welcome to mind games!");
+console.log('Welcome to mind games!');
 
 // let readline = require('readline');
 // let rl = readline.createInterface({
@@ -25,12 +25,12 @@ console.log("Welcome to mind games!");
 // });
 
 function sayName() {
-  console.log("Say your name");
+  console.log('Say your name');
 
-  name = prompt("What is your name ? ");
+  name = prompt('What is your name ? ');
   // let name = await rl.prompt();
-  if (name !== "") {
-    console.log("Hello, " + name + "!");
+  if (name !== '') {
+    console.log(`Hello, ${name}!`);
   } else {
     sayName();
   }
@@ -42,7 +42,7 @@ function sayName() {
 }
 sayName();
 
-console.log("You are offered a choice of several games. Choose one of them");
+console.log('You are offered a choice of several games. Choose one of them');
 console.log(`Games:
   >.calculator(1),
   >.progression(2),
@@ -51,15 +51,15 @@ console.log(`Games:
   >.prime number definition(5).`);
 
 function choise() {
-  console.log("Enter the name of the game or its number in brackets ()");
-  game = prompt(">>");
+  console.log('Enter the name of the game or its number in brackets ()');
+  const game = prompt('>>');
   console.log(game);
   options[game]();
 }
 choise();
 end();
 function end() {
-  if (name !== "") {
-    console.log("end");
+  if (name !== '') {
+    console.log('end');
   }
 }
