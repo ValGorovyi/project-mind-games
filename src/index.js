@@ -1,5 +1,5 @@
-const prompt = require("prompt-sync")({ sigint: true });
-const games = require("./games/games.js");
+const prompt = require('prompt-sync')({ sigint: true });
+const games = require('./games/games');
 
 const options = {
   calculator: games.calculator,
