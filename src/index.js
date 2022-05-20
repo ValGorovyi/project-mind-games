@@ -1,9 +1,10 @@
 const prompt = require("prompt-sync")({ sigint: true });
 const games = require("./games/games.js");
-const options ={
+
+const options = {
   calculator: games.calculator,
-  1: games.calculator
-}
+  1: games.calculator,
+};
 let name;
 console.log("Welcome to mind games!");
 
@@ -53,7 +54,7 @@ function choise() {
   console.log("Enter the name of the game or its number in brackets ()");
   game = prompt(">>");
   console.log(game);
-  options[game]()
+  options[game]();
 }
 choise();
 end();
