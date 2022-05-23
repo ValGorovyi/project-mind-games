@@ -1,9 +1,12 @@
 const prompt = require('prompt-sync')({ sigint: true });
-const games = require('./games/games');
+const calc = require('./games/calculator');
+const progres = require('./games/progression');
 
 const options = {
-  calculator: games.calculator,
-  1: games.calculator,
+  calculator: calc.calculator,
+  1: calc.calculator,
+  progression: progres.progression,
+  2: progres.progression,
 };
 let name;
 console.log('Welcome to mind games!');
