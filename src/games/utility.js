@@ -4,7 +4,7 @@ function randomInteger(min, max) {
   return Math.floor(rand);
 }
 function audit(result, version) {
-  if (Number(version) !== result) {
+  if (version !== result) {
     console.log('Game over');
     return false;
   }
