@@ -1,25 +1,31 @@
 const prompt = require('prompt-sync')({ sigint: true });
 const utility = require('./utility');
 
-function eventNumber() {
-  const number = utility.randomInteger(1, 100);
-  console.log(`${number} is event? (true or false / + or -)`);
-  return !(number % 2);
+function numberCheck() {
+  const n1 = utility.randomInteger(1, 100);
+  console.log(`Is ${n1} a prime number? (true or false / + or -)`);
+  for (let i = 1; i < n1; i += 1) {
+    if (n1 % i === 0 && i !== 1) {
+      return false;
+    }
+  }
+  return true;
 }
-function definitionOfAnEvenNumber() {
+
+function primeNumberDefinition() {
+  let nextOne = true;
+  let i = 0;
   const toBool = {
     false: false,
     '-': false,
     true: true,
     '+': true,
   };
-  let nextOne = true;
-  let i = 0;
   while (i < 3) {
     if (!nextOne) {
       break;
     }
-    const resultGame = eventNumber();
+    const resultGame = numberCheck();
     console.log(resultGame);
     const gamerAnswer = prompt('Your answer: ');
     nextOne = utility.audit(resultGame, toBool[gamerAnswer]);
@@ -30,4 +36,4 @@ function definitionOfAnEvenNumber() {
   }
 }
 
-module.exports = { definitionOfAnEvenNumber };
+module.exports = { primeNumberDefinition };

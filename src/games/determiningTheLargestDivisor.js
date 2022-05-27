@@ -23,7 +23,8 @@ function determiningTheLagerstDivisor() {
     const resultGame = processOfFinding();
     console.log(resultGame);
     const gamerAnswer = prompt('Your answer: ');
-    nextOne = utility.audit(resultGame, gamerAnswer);
+    console.log(gamerAnswer);
+    nextOne = utility.audit(resultGame, Number(gamerAnswer));
     i += 1;
     if (i === 3 && nextOne) {
       console.log('You WIN!');
