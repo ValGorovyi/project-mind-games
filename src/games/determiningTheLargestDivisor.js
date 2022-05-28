@@ -21,9 +21,8 @@ function determiningTheLagerstDivisor() {
       break;
     }
     const resultGame = processOfFinding();
-    console.log(resultGame);
+    // console.log(resultGame);
     const gamerAnswer = prompt('Your answer: ');
-    console.log(gamerAnswer);
     nextOne = utility.audit(resultGame, Number(gamerAnswer));
     i += 1;
     if (i === 3 && nextOne) {

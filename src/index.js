@@ -29,26 +29,32 @@ function choise() {
     'prime number definition': primeNumberDefinition,
     5: primeNumberDefinition,
   };
-  console.log('Enter the name of the game or its number in brackets ()');
-  const game = prompt('>>');
-  console.log(game);
-  options[game]();
-}
-
-function end() {
-  console.log('end');
-}
-console.log('Welcome to mind games!');
-
-sayName();
-
-console.log('You are offered a choice of several games. Choose one of them');
-console.log(`Games:
+  console.log('You are offered a choice of several games. Choose one of them');
+  console.log(`Games:
   >.calculator(1),
   >.progression(2),
   >.definition of an even number(3),
   >.determining the largest divisor(4),
   >.prime number definition(5).`);
+  console.log('Enter the name of the game or its number in brackets ()');
+  const game = prompt('>>');
+  console.log(game);
+  if (options[game]) {
+    options[game]();
+  } else {
+    console.log('I don\'t understand what you mean');
+  }
+  const repeat = prompt('Do you want it again?').toLowerCase();
+  if (repeat === 'yes' || repeat === '+' || repeat === 'y') {
+    choise();
+  }
+}
 
+function end() {
+  console.log('You\'re welcome. Good bye.');
+}
+console.log('Welcome to mind games!');
+
+sayName();
 choise();
 end();

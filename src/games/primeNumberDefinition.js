@@ -26,7 +26,7 @@ function primeNumberDefinition() {
       break;
     }
     const resultGame = numberCheck();
-    console.log(resultGame);
+    // console.log(resultGame);
     const gamerAnswer = prompt('Your answer: ');
     nextOne = utility.audit(resultGame, toBool[gamerAnswer]);
     i += 1;

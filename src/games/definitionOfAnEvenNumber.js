@@ -20,7 +20,7 @@ function definitionOfAnEvenNumber() {
       break;
     }
     const resultGame = eventNumber();
-    console.log(resultGame);
+    // console.log(resultGame);
     const gamerAnswer = prompt('Your answer: ');
     nextOne = utility.audit(resultGame, toBool[gamerAnswer]);
     i += 1;
