@@ -24,7 +24,7 @@ function calculator() {
       break;
     }
     const resultGame = mathematicalOperation();
-    console.log(resultGame);
+    // console.log(resultGame);
     const gamerAnswer = prompt('Your answer: ');
     console.log(Number(gamerAnswer).toFixed(1));
     nextOne = utility.audit(resultGame, Number(gamerAnswer).toFixed(1));
