@@ -11,4 +11,5 @@ function audit(result, version) {
   console.log('Correct!');
   return true;
 }
+
 module.exports = { randomInteger, audit };

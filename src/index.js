@@ -5,38 +5,37 @@ const { progression } = require('./games/progression');
 const { determiningTheLagerstDivisor } = require('./games/determiningTheLargestDivisor');
 const { primeNumberDefinition } = require('./games/primeNumberDefinition');
 
-function sayName() {
-  console.log('Say your name');
-  const name = prompt('What is your name ? ');
-  // let name = await rl.prompt();
-  if (name !== '') {
-    console.log(`Hello, ${name}!`);
+let name = '';
+
+function rite() {
+  if (name === '') {
+    console.log('Say your name');
+    name = prompt('What is your name ? ');
+    if (name !== '') {
+      console.log(`Hello, ${name}!`);
+      console.log('Welcome to mind games!');
+    } else {
+      rite();
+    }
   } else {
-    sayName();
+    console.log(`${name}, you're welcome. Good bye.`);
   }
 }
 
 function choise() {
-  const options = {
+  const options = [
     calculator,
-    1: calculator,
     progression,
-    2: progression,
-    'definition of an even number': definitionOfAnEvenNumber,
-    3: definitionOfAnEvenNumber,
-    'determimining the lagerst divisor': determiningTheLagerstDivisor,
-    4: determiningTheLagerstDivisor,
-    'prime number definition': primeNumberDefinition,
-    5: primeNumberDefinition,
-  };
-  console.log('You are offered a choice of several games. Choose one of them');
-  console.log(`Games:
-  >.calculator(1),
-  >.progression(2),
-  >.definition of an even number(3),
-  >.determining the largest divisor(4),
-  >.prime number definition(5).`);
-  console.log('Enter the name of the game or its number in brackets ()');
+    definitionOfAnEvenNumber,
+    determiningTheLagerstDivisor,
+    primeNumberDefinition,
+  ];
+  console.log(options.length);
+  console.log('You are offered a choice of several games. Choose one of them. Games:');
+  for (let i = 0; i < options.length; i += 1) {
+    console.log(`(${i}) - ${options[i].name} `);
+  }
+  console.log('Enter the number in brackets ()');
   const game = prompt('>>');
   console.log(game);
   if (options[game]) {
@@ -44,17 +43,12 @@ function choise() {
   } else {
     console.log('I don\'t understand what you mean');
   }
-  const repeat = prompt('Do you want it again?').toLowerCase();
+  const repeat = prompt('Do you want to play again? Enter "yes" or "no" / "+" or "-"').toLowerCase();
   if (repeat === 'yes' || repeat === '+' || repeat === 'y') {
     choise();
   }
 }
 
-function end() {
-  console.log('You\'re welcome. Good bye.');
-}
-console.log('Welcome to mind games!');
-
-sayName();
+rite();
 choise();
-end();
+rite();
