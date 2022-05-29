@@ -1,12 +1,12 @@
-h1=#Launch requirements#
+# Launch requirements #
 You must have *node.js* installed.
 After cloning install prompt-sync:
-(enter the following in the project root folder ```_npm i prompt-sync_```).
+(enter the following in the project root folder ```npm i prompt-sync```).
 
-h1=#To run the program#
-Enter the following in the project root folder ```_node src/index.js_```.
+# To run the program #
+Enter the following in the project root folder ```node src/index.js```.
 
-h1=#Interaction#
+# Interaction #
 Answers to questions should be without extra characters (dots at the end, extra spaces, etc), in lowercase.
 You can use '+' and '-' instead of 'yes' and 'no'. 
 
