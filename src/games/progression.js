@@ -2,8 +2,8 @@ const utility = require('./utility');
 
 function progression() {
   let result = '';
-  const start = utility.randomInteger(1, 25);
-  const difference = utility.randomInteger(1, 6);
+  const start = utility.randomInteger();
+  const difference = utility.randomInteger(1, 10);
   const ignorIter = utility.randomInteger(0, 7);
   for (let i = start; i <= 7 * difference + start; i += difference) {
     result += ' ';

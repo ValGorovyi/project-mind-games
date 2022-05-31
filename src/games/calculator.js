@@ -8,11 +8,11 @@ function calculator() {
     4: '*',
   };
   const currentSymbol = symbols[utility.randomInteger(1, 4)];
-  const n1 = utility.randomInteger(1, 10);
-  const n2 = utility.randomInteger(1, 5);
+  const n1 = utility.randomInteger();
+  const n2 = utility.randomInteger();
   console.log(`Question: ${n1} ${currentSymbol} ${n2}`);
   // eslint-disable-next-line no-eval
-  return Number(eval(`${n1} ${currentSymbol} ${n2}`)).toFixed(1);
+  return eval(`${n1} ${currentSymbol} ${n2}`).toFixed(1);
 }
 
 // function calculator() {

@@ -1,10 +1,10 @@
 const prompt = require('prompt-sync')({ sigint: true });
 const utility = require('./games/utility');
 const { calculator } = require('./games/calculator');
-const { definitionOfAnEvenNumber } = require('./games/definitionOfAnEvenNumber');
+const { definitionOfAnEvenNumber } = require('./games/evenNumber');
 const { progression } = require('./games/progression');
-const { determiningTheLagerstDivisor } = require('./games/determiningTheLargestDivisor');
-const { primeNumberDefinition } = require('./games/primeNumberDefinition');
+const { determiningTheLagerstDivisor } = require('./games/theLargestDivisor');
+const { primeNumberDefinition } = require('./games/primeNumber');
 
 let name = '';
 

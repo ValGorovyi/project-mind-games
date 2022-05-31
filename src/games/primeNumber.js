@@ -1,7 +1,7 @@
 const utility = require('./utility');
 
 function primeNumberDefinition() {
-  const n1 = utility.randomInteger(1, 100);
+  const n1 = utility.randomInteger();
   console.log(`Is ${n1} a prime number? (true or false / + or -)`);
   for (let i = 1; i < n1; i += 1) {
     if (n1 % i === 0 && i !== 1) {

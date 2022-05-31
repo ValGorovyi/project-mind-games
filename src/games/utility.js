@@ -1,6 +1,6 @@
 const prompt = require('prompt-sync')({ sigint: true });
 
-function randomInteger(min, max) {
+function randomInteger(min = 1, max = 100) {
   // случайное число от min до (max+1)
   const rand = min + Math.random() * (max + 1 - min);
   return Math.floor(rand);
@@ -27,11 +27,7 @@ function gameProcess(functionPerformed, debug) {
     }
     // console.log(resultGame);
     const gamerAnswer = prompt('Your answer: ');
-    if (functionPerformed.name === 'calculator') {
-      nextOne = verificationOfResults(resultGame, Number(gamerAnswer).toFixed(1));
-    } else if (functionPerformed.name === 'progression' || functionPerformed.name === 'determiningTheLagerstDivisor') {
-      nextOne = verificationOfResults(Number(resultGame), Number(gamerAnswer));
-    } else if (functionPerformed.name === 'definitionOfAnEvenNumber' || functionPerformed.name === 'primeNumberDefinition') {
+    if (functionPerformed.name === 'definitionOfAnEvenNumber' || functionPerformed.name === 'primeNumberDefinition') {
       const toBool = {
         false: false,
         '-': false,
@@ -39,6 +35,8 @@ function gameProcess(functionPerformed, debug) {
         '+': true,
       };
       nextOne = verificationOfResults(resultGame, toBool[gamerAnswer]);
+    } else {
+      nextOne = verificationOfResults(Number(resultGame), Number(gamerAnswer));
     }
     i += 1;
     if (i === 3 && nextOne) {
