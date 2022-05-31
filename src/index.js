@@ -1,4 +1,5 @@
 const prompt = require('prompt-sync')({ sigint: true });
+const utility = require('./games/utility');
 const { calculator } = require('./games/calculator');
 const { definitionOfAnEvenNumber } = require('./games/definitionOfAnEvenNumber');
 const { progression } = require('./games/progression');
@@ -30,7 +31,6 @@ function choise() {
     determiningTheLagerstDivisor,
     primeNumberDefinition,
   ];
-  console.log(options.length);
   console.log('You are offered a choice of several games. Choose one of them. Games:');
   for (let i = 0; i < options.length; i += 1) {
     console.log(`(${i}) - ${options[i].name} `);
@@ -39,7 +39,7 @@ function choise() {
   const game = prompt('>>');
   console.log(game);
   if (options[game]) {
-    options[game]();
+    utility.gameProcess(options[game]);
   } else {
     console.log('I don\'t understand what you mean');
   }

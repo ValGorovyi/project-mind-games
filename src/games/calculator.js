@@ -1,7 +1,6 @@
-const prompt = require('prompt-sync')({ sigint: true });
 const utility = require('./utility');
 
-function mathematicalOperation() {
+function calculator() {
   const symbols = {
     1: '+',
     2: '-',
@@ -16,23 +15,23 @@ function mathematicalOperation() {
   return Number(eval(`${n1} ${currentSymbol} ${n2}`)).toFixed(1);
 }
 
-function calculator() {
-  let nextOne = true;
-  let i = 0;
-  while (i < 3) {
-    if (!nextOne) {
-      break;
-    }
-    const resultGame = mathematicalOperation();
-    // console.log(resultGame);
-    const gamerAnswer = prompt('Your answer: ');
-    console.log(Number(gamerAnswer).toFixed(1));
-    nextOne = utility.audit(resultGame, Number(gamerAnswer).toFixed(1));
-    i += 1;
-    if (i === 3 && nextOne) {
-      console.log('You WIN!');
-    }
-  }
-}
+// function calculator() {
+//   let nextOne = true;
+//   let i = 0;
+//   while (i < 3) {
+//     if (!nextOne) {
+//       break;
+//     }
+//     const resultGame = mathematicalOperation();
+//     // console.log(resultGame);
+//     const gamerAnswer = prompt('Your answer: ');
+//     console.log(Number(gamerAnswer).toFixed(1));
+//     nextOne = utility.verificationOfResults(resultGame, Number(gamerAnswer).toFixed(1));
+//     i += 1;
+//     if (i === 3 && nextOne) {
+//       console.log('You WIN!');
+//     }
+//   }
+// }
 
 module.exports = { calculator };
