@@ -13,7 +13,7 @@ function verificationOfResults(correctAnswer, playerVersion) {
   console.log('Correct!');
   return true;
 }
-function gameProcess(functionPerformed) {
+function gameProcess(functionPerformed, debug) {
   let nextOne = true;
   const limit = 3;
   let i = 0;
@@ -22,6 +22,9 @@ function gameProcess(functionPerformed) {
       break;
     }
     const resultGame = functionPerformed();
+    if (debug) {
+      console.log(`Answer - ${resultGame}`);
+    }
     // console.log(resultGame);
     const gamerAnswer = prompt('Your answer: ');
     if (functionPerformed.name === 'calculator') {

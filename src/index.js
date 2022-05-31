@@ -39,7 +39,7 @@ function choise() {
   const game = prompt('>>');
   console.log(game);
   if (options[game]) {
-    utility.gameProcess(options[game]);
+    utility.gameProcess(options[game], process.argv[2]);
   } else {
     console.log('I don\'t understand what you mean');
   }
