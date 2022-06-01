@@ -28,13 +28,13 @@ function gameProcess(functionPerformed, debug) {
     // console.log(resultGame);
     const gamerAnswer = prompt('Your answer: ');
     if (functionPerformed.name === 'definitionOfAnEvenNumber' || functionPerformed.name === 'primeNumberDefinition') {
-      const toBool = {
+      const keysToBoolean = {
         false: false,
         '-': false,
         true: true,
         '+': true,
       };
-      nextOne = verificationOfResults(resultGame, toBool[gamerAnswer]);
+      nextOne = verificationOfResults(resultGame, keysToBoolean[gamerAnswer]);
     } else {
       nextOne = verificationOfResults(Number(resultGame), Number(gamerAnswer));
     }

@@ -1,16 +1,17 @@
 const utility = require('./utility');
 
 function determiningTheLagerstDivisor() {
-  const n1 = utility.randomInteger();
-  const n2 = utility.randomInteger();
-  let result;
+  let n1 = utility.randomInteger();
+  let n2 = utility.randomInteger();
   console.log(`Common divisor of ${n1} and ${n2} is...`);
-  for (let i = 1; i <= n1 && i <= n2; i += 1) {
-    if (n1 % i === 0 && n2 % i === 0) {
-      result = i;
+  while (n1 !== n2) {
+    if (n1 > n2) {
+      n1 -= n2;
+    } else {
+      n2 -= n1;
     }
   }
-  return result;
+  return n1;
 }
 // function determiningTheLagerstDivisor() {
 //   let nextOne = true;
