@@ -6,24 +6,24 @@ const { progression } = require('./games/progression');
 const { determiningTheLagerstDivisor } = require('./games/theLargestDivisor');
 const { primeNumberDefinition } = require('./games/primeNumber');
 
-let name = '';
+let gamerNickName = '';
 
-function rite() {
-  if (name === '') {
+function introduceYourself() {
+  if (gamerNickName === '') {
     console.log('Say your name');
-    name = prompt('What is your name ? ');
-    if (name !== '') {
-      console.log(`Hello, ${name}!`);
+    gamerNickName = prompt('What is your name ? ');
+    if (gamerNickName !== '') {
+      console.log(`Hello, ${gamerNickName}!`);
       console.log('Welcome to mind games!');
     } else {
-      rite();
+      introduceYourself();
     }
   } else {
-    console.log(`${name}, you're welcome. Good bye.`);
+    console.log(`${gamerNickName}, you're welcome. Good bye.`);
   }
 }
 
-function choise() {
+function choose() {
   const options = [
     calculator,
     progression,
@@ -39,16 +39,16 @@ function choise() {
   const game = prompt('>>');
   console.log(game);
   if (options[game]) {
-    utility.gameProcess(options[game], process.argv[2]);
+    utility.startTheGame(options[game], process.argv[2]);
   } else {
     console.log('I don\'t understand what you mean');
   }
   const repeat = prompt('Do you want to play again? Enter "yes" or "no" / "+" or "-"').toLowerCase();
   if (repeat === 'yes' || repeat === '+' || repeat === 'y') {
-    choise();
+    choose();
   }
 }
 
-rite();
-choise();
-rite();
+introduceYourself();
+choose();
+introduceYourself();
