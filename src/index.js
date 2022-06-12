@@ -1,11 +1,16 @@
+/* eslint-disable max-len */
 const prompt = require('prompt-sync')({ sigint: true });
 const utility = require('./games/utility');
+
 const { calculator } = require('./games/calculator');
 const { definitionOfAnEvenNumber } = require('./games/evenNumber');
 const { progression } = require('./games/progression');
 const { determiningTheLagerstDivisor } = require('./games/theLargestDivisor');
 const { primeNumberDefinition } = require('./games/primeNumber');
 
+const options = [];
+options.push(calculator, definitionOfAnEvenNumber, progression, determiningTheLagerstDivisor, primeNumberDefinition);
+console.log(options);
 let gamerNickName = '';
 
 function introduceYourself() {
@@ -18,19 +23,13 @@ function introduceYourself() {
     } else {
       introduceYourself();
     }
-  } else {
-    console.log(`${gamerNickName}, you're welcome. Good bye.`);
   }
+}
+function sayGoodbye() {
+  console.log(`${gamerNickName}, you're welcome. Good bye.`);
 }
 
 function choose() {
-  const options = [
-    calculator,
-    progression,
-    definitionOfAnEvenNumber,
-    determiningTheLagerstDivisor,
-    primeNumberDefinition,
-  ];
   console.log('You are offered a choice of several games. Choose one of them. Games:');
   for (let i = 0; i < options.length; i += 1) {
     console.log(`(${i}) - ${options[i].name} `);
@@ -51,4 +50,4 @@ function choose() {
 
 introduceYourself();
 choose();
-introduceYourself();
+sayGoodbye();

@@ -1,4 +1,5 @@
 const utility = require('./utility');
+// console.log(utility);
 
 function determiningTheLagerstDivisor() {
   let n1 = utility.randomInteger();

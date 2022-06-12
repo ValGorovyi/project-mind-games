@@ -1,5 +1,7 @@
 const utility = require('./utility');
 
+console.log(utility);
+
 function progression() {
   let result = '';
   const firstNumber = utility.randomInteger();

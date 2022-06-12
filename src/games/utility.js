@@ -25,7 +25,7 @@ function startTheGame(functionPerformed, debug) {
       console.log(`Answer - ${resultGame}`);
     }
     const gamerAnswer = prompt('Your answer: ');
-    if (functionPerformed.name === 'definitionOfAnEvenNumber' || functionPerformed.name === 'primeNumberDefinition') {
+    if (typeof resultGame === 'boolean') {
       const isKeysToBoolean = {
         false: false,
         '-': false,
