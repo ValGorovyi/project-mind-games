@@ -1,7 +1,6 @@
 # Launch requirements #
 You must have *node.js* installed.
-After cloning install prompt-sync:
-(enter the following in the project root folder ```npm i prompt-sync```).
+After cloning install npm-package and depends with command ```npm instal```).
 
 # To run the program #
 Enter the following in the project root folder ```node src/index.js```. Enter the following in the project root folder if you want to see the response ```node src/index.js debug```.
