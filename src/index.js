@@ -1,60 +1,49 @@
+/* eslint-disable max-len */
 const prompt = require('prompt-sync')({ sigint: true });
-const { calculator } = require('./games/calculator');
-const { definitionOfAnEvenNumber } = require('./games/definitionOfAnEvenNumber');
-const { progression } = require('./games/progression');
-const { determiningTheLagerstDivisor } = require('./games/determiningTheLargestDivisor');
-const { primeNumberDefinition } = require('./games/primeNumberDefinition');
+const utility = require('./games/utility');
 
-function sayName() {
+const { calculator } = require('./games/calculator');
+const { definitionOfAnEvenNumber } = require('./games/evenNumber');
+const { progression } = require('./games/progression');
+const { determiningTheLagerstDivisor } = require('./games/theLargestDivisor');
+const { primeNumberDefinition } = require('./games/primeNumber');
+
+const options = [calculator, definitionOfAnEvenNumber, progression, determiningTheLagerstDivisor, primeNumberDefinition];
+
+function introduceYourself() {
   console.log('Say your name');
-  const name = prompt('What is your name ? ');
-  // let name = await rl.prompt();
-  if (name !== '') {
-    console.log(`Hello, ${name}!`);
+  const gamerNickName = prompt('What is your name ? ');
+  if (gamerNickName) {
+    console.log(`Hello, ${gamerNickName}!`);
+    console.log('Welcome to mind games!');
   } else {
-    sayName();
+    introduceYourself();
   }
+  return gamerNickName;
+}
+function sayGoodbye(gamerNickName) {
+  console.log(`${gamerNickName}, good bye.`);
 }
 
-function choise() {
-  const options = {
-    calculator,
-    1: calculator,
-    progression,
-    2: progression,
-    'definition of an even number': definitionOfAnEvenNumber,
-    3: definitionOfAnEvenNumber,
-    'determimining the lagerst divisor': determiningTheLagerstDivisor,
-    4: determiningTheLagerstDivisor,
-    'prime number definition': primeNumberDefinition,
-    5: primeNumberDefinition,
-  };
-  console.log('You are offered a choice of several games. Choose one of them');
-  console.log(`Games:
-  >.calculator(1),
-  >.progression(2),
-  >.definition of an even number(3),
-  >.determining the largest divisor(4),
-  >.prime number definition(5).`);
-  console.log('Enter the name of the game or its number in brackets ()');
+function choose() {
+  console.log('You are offered a choice of several games. Choose one of them. Games:');
+  for (let i = 0; i < options.length; i += 1) {
+    console.log(`(${i}) - ${options[i].name} `);
+  }
+  console.log('Enter the number in brackets ()');
   const game = prompt('>>');
   console.log(game);
   if (options[game]) {
-    options[game]();
+    utility.startTheGame(options[game], process.argv[2]);
   } else {
     console.log('I don\'t understand what you mean');
   }
-  const repeat = prompt('Do you want it again?').toLowerCase();
+  const repeat = prompt('Do you want to play again? Enter "yes" or "no" / "+" or "-"').toLowerCase();
   if (repeat === 'yes' || repeat === '+' || repeat === 'y') {
-    choise();
+    choose();
   }
 }
 
-function end() {
-  console.log('You\'re welcome. Good bye.');
-}
-console.log('Welcome to mind games!');
-
-sayName();
-choise();
-end();
+const gamerNickName = introduceYourself();
+choose();
+sayGoodbye(gamerNickName);
