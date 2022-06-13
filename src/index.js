@@ -8,25 +8,21 @@ const { progression } = require('./games/progression');
 const { determiningTheLagerstDivisor } = require('./games/theLargestDivisor');
 const { primeNumberDefinition } = require('./games/primeNumber');
 
-const options = [];
-options.push(calculator, definitionOfAnEvenNumber, progression, determiningTheLagerstDivisor, primeNumberDefinition);
-console.log(options);
-let gamerNickName = '';
+const options = [calculator, definitionOfAnEvenNumber, progression, determiningTheLagerstDivisor, primeNumberDefinition];
 
 function introduceYourself() {
-  if (gamerNickName === '') {
-    console.log('Say your name');
-    gamerNickName = prompt('What is your name ? ');
-    if (gamerNickName !== '') {
-      console.log(`Hello, ${gamerNickName}!`);
-      console.log('Welcome to mind games!');
-    } else {
-      introduceYourself();
-    }
+  console.log('Say your name');
+  const gamerNickName = prompt('What is your name ? ');
+  if (gamerNickName) {
+    console.log(`Hello, ${gamerNickName}!`);
+    console.log('Welcome to mind games!');
+  } else {
+    introduceYourself();
   }
+  return gamerNickName;
 }
-function sayGoodbye() {
-  console.log(`${gamerNickName}, you're welcome. Good bye.`);
+function sayGoodbye(gamerNickName) {
+  console.log(`${gamerNickName}, good bye.`);
 }
 
 function choose() {
@@ -48,6 +44,6 @@ function choose() {
   }
 }
 
-introduceYourself();
+const gamerNickName = introduceYourself();
 choose();
-sayGoodbye();
+sayGoodbye(gamerNickName);
